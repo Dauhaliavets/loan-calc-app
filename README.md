@@ -1,54 +1,55 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Деплой
 
-Currently, two official plugins are available:
+Приложение размещено на сервисе [Netlify](https://www.netlify.com/) и доспутно по [ссылке на деплой](https://dauhaliavets-loan-calc.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Запуск проекта локально
 
-## Expanding the ESLint configuration
+В терминале необходимо выполнить одну из следующих команд:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Далее в браузере открыть [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### ~ ТЗ
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Реализация попапа для расчета платежей по кредиту
+
+Описание: Необходимо сверстать и реализовать всплывающий адаптивный попап, используя React + CSS или препроцессор.
+
+[Ссылка на макет](https://www.figma.com/design/YIHRBDsjmMotlqn7utKikI/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-U2C?node-id=0-1&t=milGcyabZDdttRdl-1)
+
+Описание макета:
+
+- Одна кнопка посередине экрана с надписью «Расчет платежей».
+- Попап с двумя экранами:
+  - Экран 1: Поле ввода суммы кредита и кнопка "Рассчитать".
+  - Экран 2: Отображение результатов расчета с выбранными опциями
+
+Требования к разработке:
+
+1. Сверстать адаптивный попап
+   - Попап должен корректно отображаться на различных устройствах (десктоп, планшет, мобильные устройства).
+2. Реализовать логику открытия/закрытия попапа
+   - Попап открывается по нажатию на кнопку «Расчет платежей» и закрывается по нажатию на крестик или вне области попапа.
+3. Добавить логику расчета платежей
+   - При нажатии на кнопку "Рассчитать" на первом экране попапа, нужно запросить у пользователя сумму кредита и рассчитать ежемесячный/ежегодный платеж по следующей формуле:
+     Ежемесячный платеж = Сумма кредита / Количество месяцев ​
+   - Количество месяцев — 12(по умолчанию), 24, 36, 48 (в зависимости от тегов на втором экране).
+4. Отображение результатов
+   - На втором экране пользователь видит результат расчета, который зависит от выбранного срока кредита (12, 24, 36, 48 месяцев).
+   - Выводить ежемесячный/ежегодный результат расчета в зависимости от выбора пользователя. По умолчанию выводится ежемесячный.
+
+Требования к результату:
+
+- Сверстанный попап должен быть адаптивным.
+- Реализована логика открытия/закрытия попапа.
+- Присутствует функционал расчета на основе введенной суммы кредита и выбранного срока.
+- Для скорости и удобства можно использовать CRA, свою сборку настраивать не нужно.
+- Компоненты должны быть созданы с нуля, нельзя использовать готовые компоненты написанные кем то другим :)
+- Результаты задания необходимо загрузить на GitHub и предоставить ссылку на проект.
