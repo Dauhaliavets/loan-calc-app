@@ -1,0 +1,15 @@
+@import "normalize.css/normalize.css";
+
+@font-face {
+  font-family: "LabGrotesque Regular";
+  src: url("/src/assets/fonts/LabGrotesque-Regular.eot") format("eot"),
+    url("/src/assets/fonts/LabGrotesque-Regular.ttf") format("ttf"),
+    url("/src/assets/fonts/LabGrotesque-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "LabGrotesque Medium";
+  src: url("/src/assets/fonts/LabGrotesque-Medium.eot") format("eot"),
+    url("/src/assets/fonts/LabGrotesque-Medium.ttf") format("ttf"),
+    url("/src/assets/fonts/LabGrotesque-Medium.woff") format("woff");
+}
